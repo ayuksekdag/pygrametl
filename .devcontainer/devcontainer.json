@@ -1,0 +1,15 @@
+{
+  "name": "My Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",  // Base Ubuntu image
+  "features": {
+    "postgresql": "latest"  // Install PostgreSQL
+  },
+  "postCreateCommand": "sudo service postgresql start && pip install pygrametl",  // Install pygrametl
+  "forwardPorts": [5432],  // Forward PostgreSQL port
+  "portsAttributes": {
+    "5432": {
+      "label": "PostgreSQL",
+      "onAutoForward": "notify"
+    }
+  }
+}
