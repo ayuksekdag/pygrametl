@@ -1,10 +1,10 @@
 {
   "name": "My Dev Container",
-  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",  // Base Ubuntu image
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",  // Use a base image with Python
   "features": {
-    "postgresql": "latest"  // Install PostgreSQL
+    // New features can be added here as needed
   },
-  "postCreateCommand": "sudo service postgresql start && pip install pygrametl",  // Install pygrametl
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y postgresql postgresql-contrib && sudo service postgresql start && pip install pygrametl",  // Install PostgreSQL and pygrametl
   "forwardPorts": [5432],  // Forward PostgreSQL port
   "portsAttributes": {
     "5432": {
